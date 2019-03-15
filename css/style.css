@@ -26,7 +26,77 @@ figcaption {
   font-size: 0.75em;
   line-height: 1.5em;
   font-family: Georgia, "Times New Roman", serif;*/
-  font: normal 0.75em/1.5em Georgia, "Times New Roman", serif;
+  font: normal 0.75em/1.5em 'Elsie Swash Caps', cursive; 
+  /* Note: Georgia is MUCH easier to see than either of the imported fonts. */
   color: #777;
   text-align: right;
 }
+
+/* Class selector (applied to as many elements as you like) */
+
+.milk-text { /* select elements with class="milk-text" */
+  font: bold 2.6em "Elsie Swash Caps", cursive;
+  /* I may change the font to Clicker Script later. */
+  color: white;
+  text-shadow: 0 2px 3px #000;
+  
+  /* Alternative background (without the image):
+  background-color: #3297FD;
+  display: inline-block; */
+}
+
+/*.milk-text::selection {
+  background-color: red;
+}*/
+
+
+/* ID selector (apply to one unique element per page) */
+
+#logo {  /* select elements with id="logo" */
+  background: aqua;
+}
+
+/* Descendant Selector */
+
+#logo h1 { /* selects <h1> if inside id="logo" */
+  font-family: 'Clicker Script', cursive;
+}
+
+#logo h2 {
+  font-family: 'Elsie Swash Caps', cursive;
+}
+
+/* Pseudo-Class Selector */
+
+#details a:link, a:visited { 
+  /* Remember to comma-separate selectors that have the same property values!
+  This is called a compound selector. */
+  color: black;
+  text-decoration: underline; /* This was set to none, but that makes it impossible to tell links apart from regular text. */
+}
+
+#details a:hover { 
+  color: blue; /* This was set to black. I changed it for more contrast. */
+  text-decoration: underline;
+}
+
+#details a:active {
+  color: red;
+}
+
+/* This may be better form (possibly NOT, given the usual pseudo-class order):
+#details a:link, a:hover, a:visited {
+  text-decoration: underline;
+}
+
+#details a:link, a:visited {
+  color: black;
+}
+
+#details a:hover {
+  color: blue;
+}
+
+#details a:active {
+  color: red;
+} */
