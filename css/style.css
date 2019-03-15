@@ -101,21 +101,22 @@ figcaption {
   color: red;
 } */
 
-nav a {
+nav a:link {
   color: #03a9f4;
-}
-
-nav a:hover { /* Webkit is only mainly supported by Chrome and Safari. */
-  background: linear-gradient(to right, red, #00ff7f, blue);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-decoration-color: black; /* This is not supported in Edge/IE. */
-}
-
-nav a:active {
-  color: red; /* Not sure why, but this gets overridden by nav a:hover. */
 }
 
 nav a:visited {
   color: purple;
+}
+
+nav a:hover { /* Webkit might only be mainly supported by Chrome and Safari. */
+  background: linear-gradient(to right, red, #00ff7f, blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* This will somehow override the nav a:active color in some browsers. However, if I use "color: transparent;", this will render the text invisible in OTHER browsers!  More experimentation is needed; it may be a bug. */
+  color: black; /* For non-Webkit-supported browsers. */
+  text-decoration-color: black; /* This is not supported in Edge/IE. */
+}
+
+nav a:active {
+  color: white; /* This works in Firefox, but not in other browsers. */
 }
