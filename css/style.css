@@ -100,3 +100,22 @@ figcaption {
 #details a:active {
   color: red;
 } */
+
+nav a {
+  color: #03a9f4;
+}
+
+nav a:hover { /* Webkit is only mainly supported by Chrome and Safari. */
+  background: linear-gradient(to right, red, #00ff7f, blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration-color: black; /* This is not supported in Edge/IE. */
+}
+
+nav a:active {
+  color: red; /* Not sure why, but this gets overridden by nav a:hover. */
+}
+
+nav a:visited {
+  color: purple;
+}
