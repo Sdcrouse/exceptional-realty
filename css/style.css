@@ -126,6 +126,15 @@ nav a:active {
   color: white; /* This works in Firefox, but not in other browsers. */
 }
 
+/*//////// MEDIA ////////*/
+
+img, video, audio {
+  /* This allows img, video, and audio elements to be fluid in their sizing. */
+  /* "They will always be 100% within the confines of their parent container (which in this case is the column that they're in)." */
+  /* Correction: Their parent containers are the <figure> elements, which are then confined within the columns. */
+  max-width: 100%;
+}
+
 /*//////// LAYOUT ////////*/
 
 .wrapper {
@@ -162,7 +171,7 @@ nav a:active {
   background: #ccc;
 }
 
-.clearfix::after {
+.clearfix::after { /* This solves the "collapsing parent element with floating children" issue. */
   content: ".";
   display: block;
   clear: both;
