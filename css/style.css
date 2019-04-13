@@ -137,6 +137,12 @@ img, video, audio {
 
 /*//////// LAYOUT ////////*/
 
+* {
+  -webkit-box-sizing: border-box; /* Older versions of Safari */
+  -moz-box-sizing: border-box; /* Older versions of Firefox */
+  box-sizing: border-box; /* Virtually everything else */
+}
+
 .wrapper {
   width: 960px;
   margin: 0 auto; /* Would it be better to use "text-align: center;" in the header instead of making this wrapper class? */
@@ -190,4 +196,12 @@ img, video, audio {
   /* I get the feeling that this is a bad idea, especially as our code grows. It doesn't appear to follow responsive design, and it will be hard to extend and debug. */
   margin-left: 0; /* The original value was 0%, but the % is not needed. */
   /* Note: Be REALLY careful of the order that you write these selectors. [class*=”col”] and .first have the SAME specificity, so the one written later OVERRIDES the one written earlier! */
+}
+
+/*//////// SECTIONS ////////*/
+
+section {
+  padding: 20px; /* This prevents the text from being right up against the edge. However, it ALSO increases the width of the element due to the W3C box model. */
+  /* This can easily be fixed by setting "box-sizing: border-box;" for all elements (as I did in the LAYOUT section above). This forces the browser to use the IE box model. */
+  margin-bottom: 20px;
 }
