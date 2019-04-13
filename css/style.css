@@ -105,6 +105,11 @@ nav a:link {
   color: #03a9f4;
 }
 
+/* nav a[target="_blank"]:link {
+  /* There's a bug causing the HUD link to be purple even when NOT visited (at least in Chrome). I tried to fix it here, but without success.
+  color: #03a9f4;
+} */
+
 nav a:visited {
   color: purple;
 }
@@ -119,4 +124,61 @@ nav a:hover { /* Webkit might only be mainly supported by Chrome and Safari. */
 
 nav a:active {
   color: white; /* This works in Firefox, but not in other browsers. */
+}
+
+/*//////// LAYOUT ////////*/
+
+.wrapper {
+  width: 960px;
+  margin: 0 auto; /* Would it be better to use "text-align: center;" in the header instead of making this wrapper class? */
+  background: #eee; /* This is temporary, just so we see what we're doing initially. */
+}
+
+/* In this part of the layout, we will have (at most) a three-column structure. So, we'll make three classes: */
+
+.col-1 { /* Spans 1/3 of the space (its parent element, the wrapper) */
+  float: left; /* Whenever we have a column structure where we need columns to exist side-by-side with other columns, we need them to float. */
+  /* We want a margin of ~2% between each column. My guess: set margin to "0 1%", as I'm pretty sure the margins of columns will add together, not overlap. */
+  /* Update: we are instead taking 100% and subtracting 2% for each column, yielding the width of the space in-between. My initial thought changed to "margin: 31.333%;", but I think we'll instead set the WIDTH to 31.333%. */ 
+  width: 32%; 
+  /* Update 2: evidently, the columns are block-level, not inline, so their margins overlap. Therefore, to have 2% margin on each side of the element, we subtract 4% from 100% and get 96%. Dividing that by 3 yields the width of each column (32%). */
+  /* Update 3: I don't think this yields 2% MARGIN on each side, but 2% PADDING! The border's width is 0 by default, but I think there is SOME margin by default. */
+  /* Update 4: It's even SIMPLER than that! Check out the .col-2 notes below. */
+  background: #ccc;
+}
+
+.col-2 { /* Spans 2/3 of the wrapper (the width of TWO regular columns) */
+  float: left;
+  /* My guess: we still want 2% spacing on the left and right, so the width will be 100% - 4% - 32% - 4% = 2 x 32% - 4% = 60%. We subtract that extra 4% to get the needed spacing on the second column. */
+  width: 66%; 
+  /* I misunderstood. To get the width of each col-1, we calculated (100% - 4%) / 3% = 32%, yielding 2% margin between each column. */
+  /* Now, col-2 takes up the space of 2 col-1's PLUS the space between them, so the width of col-2 = 2 x 32% + 2% = 66%. Draw it out; it makes sense! */
+  background: #ccc;
+}
+
+.col-3 { /* Spans across ALL of the wrapper's space */
+  /* No floating is needed here, since this takes up the whole space, with nothing beside it. */
+  /* Also, since this is a block-level element, its width is already 100% by default. */
+  background: #ccc;
+}
+
+.clearfix::after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+
+[class*="col-"] { /* Note that this is also possible with [class|="col"] or [class^="col-"] */
+  /* This is one solution to setting the margins of all of our columns, but it's not the best one. It will add an unnecessary 2% left margin to the left-most column.*/
+  margin-left: 2%;
+}
+
+.first { /* Remember that this is a CLASS, not the :first or :first-child pseudo-class! */
+  /* One solution to the problem in the [class*="col"] selector: add a class to the first column of each wrapper in our layout, and tell it not to have any margin. */
+  /* I get the feeling that this is a bad idea, especially as our code grows. It doesn't appear to follow responsive design, and it will be hard to extend and debug. */
+  margin-left: 0; /* The original value was 0%, but the % is not needed. */
+  /* Note: Be REALLY careful of the order that you write these selectors. [class*=”col”] and .first have the SAME specificity, so the one written later OVERRIDES the one written earlier! */
 }
