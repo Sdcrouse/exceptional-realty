@@ -101,6 +101,8 @@ figcaption {
   color: red;
 } */
 
+/*//////// MY SPECIAL NAV STYLES ////////*/
+
 nav a:link {
   color: #03a9f4;
 }
@@ -137,7 +139,7 @@ img, video, audio {
 
 /*//////// LAYOUT ////////*/
 
-* {
+* { /* This solves a problem with width and padding (see the "section" selector). */
   -webkit-box-sizing: border-box; /* Older versions of Safari */
   -moz-box-sizing: border-box; /* Older versions of Firefox */
   box-sizing: border-box; /* Virtually everything else */
@@ -200,8 +202,73 @@ img, video, audio {
 
 /*//////// SECTIONS ////////*/
 
+header {
+  position: fixed; /* This has a WEIRD visual effect by itself! */
+  /* Also, if this ^ is set to absolute and positioned like below, it still has a margin from its first <h1> child. */
+  top: 0; /* Note: I didn't notice a change when adding the top and left properties; they may be the default. */
+  left: 0;
+  width: 100%; /* This forces the header to stay within the width of the body. */
+  background: #fff; /* Check out the change of color above the cyan background! */
+  z-index: 1; /* This puts it above everything; that may be the default, anyway. */
+}
+
 section {
   padding: 20px; /* This prevents the text from being right up against the edge. However, it ALSO increases the width of the element due to the W3C box model. */
   /* This can easily be fixed by setting "box-sizing: border-box;" for all elements (as I did in the LAYOUT section above). This forces the browser to use the IE box model. */
   margin-bottom: 20px;
+}
+
+/*//////// SOCIAL ////////*/
+
+/* By default, #social's content is in the top left corner of the screen, and its <a> links are positioned inline/side-by-side. */
+/* The goal is to get the <a> elements within #social to stack vertically and remain fixed in the top-right corner of the screen. Here was my FIRST attempt: */
+
+/* #social {
+  position: absolute; /* fixed; static; relative; 
+  top: 0;
+  right: 0; /* 10% 
+}
+
+#social a {
+  display: block; /* This is needed, to override the default inline display. However, this only works for relative or static positioning.
+  position: fixed; /* absolute;
+  right: 100px; /* I had to additionally set this in order to see the links.
+} */
+
+/* Interesting: Everything I did seemed to work OK, except for one thing in "#social a": "position: fixed;" (or "position: absolute;" for that matter). */
+/* When I did that (in an attempt to make it stick to the top of the screen), it made the entire #social element have 0 area! However, I can make it visible by setting the "right" property. */
+/* Note that the #social element still has 0 area for fixed and absolute positioning, but if it's block level and either relative or static, then it only has 0 height. */
+/* I think the answer to this question explains what's going on: https://stackoverflow.com/questions/5146971/fixed-position-div-not-staying-contained-in-wrapping-div-overlays-entire-screen */
+/* I think it also made the <a> links in #social go beyond the browser window's boundaries! I will have to explore this later. */
+/* Update: I don't know if what I said in the comment above is right, but this explains most if not ALL of my problem: https://stackoverflow.com/questions/33235406/why-absolutely-positioned-parent-element-width-is-zero */
+/* I forgot that I can use top/bottom/left/right with "position: fixed;" as well as "absolute"; however, in both cases, the <a> elements' inner text overlap each other, though "position: absolute;" allows for another line of text. */
+
+/* Attempt #2: */
+
+/* #social {
+  position: fixed; /* Update: I had the right idea here. 
+  /* "display: block;" isn't needed here; that's the default. 
+  top: 0; /* Jon Grover used different values here and below, along with additional styling.
+  right: 0;
+}
+
+#social a {
+  display: block; /* Update: I had the right idea here as well. Jon Grover simply added a few additional styles after this.
+} */
+
+/* Jon Grover's solution: */
+
+#social {
+  position: fixed; /* Evidently, fixed positioning (by itself) overrides the block-level behavior of a <div> here. I'll have to check this out more. */
+  top: 200px; /* 200px downward from the top */
+  right: 20px; /* 20px leftward from the right */
+  width: 40px;
+  z-index: 1; /* This ensures that the element is always on top of everything else. */
+}
+
+#social a {
+  display: block; /* This lets the links stack vertically. */
+  width: 40px;
+  height: 40px;
+  background: yellow;
 }
