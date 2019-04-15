@@ -53,7 +53,6 @@ figcaption {
 /* ID selector (apply to one unique element per page) */
 
 #logo {  /* select elements with id="logo" */
-  background: aqua;
 }
 
 /* Descendant Selector */
@@ -137,6 +136,10 @@ img, video, audio {
   max-width: 100%;
 }
 
+#featured-property img { /* Note: I set this property myself so that you can see the entire image. Delete this if necessary. */
+  margin-top: 150px;
+}
+
 /*//////// LAYOUT ////////*/
 
 * { /* This solves a problem with width and padding (see the "section" selector). */
@@ -148,7 +151,6 @@ img, video, audio {
 .wrapper {
   width: 960px;
   margin: 0 auto; /* Would it be better to use "text-align: center;" in the header instead of making this wrapper class? */
-  background: #eee; /* This is temporary, just so we see what we're doing initially. */
 }
 
 /* In this part of the layout, we will have (at most) a three-column structure. So, we'll make three classes: */
@@ -208,7 +210,7 @@ header {
   top: 0; /* Note: I didn't notice a change when adding the top and left properties; they may be the default. */
   left: 0;
   width: 100%; /* This forces the header to stay within the width of the body. */
-  background: #fff; /* Check out the change of color above the cyan background! */
+  background: #fff; /* Check out the change of color everywhere! */
   z-index: 1; /* This puts it above everything; that may be the default, anyway. */
 }
 
