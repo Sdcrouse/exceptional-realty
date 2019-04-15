@@ -149,11 +149,12 @@ img, video, audio {
 }
 
 .wrapper {
+  /* display: inline-block; */
   width: 960px;
   margin: 0 auto; /* Would it be better to use "text-align: center;" in the header instead of making this wrapper class? */
   /* Answer: no. Setting "text-align: center;" causes all of the text inside the header, logo, etc. to center (probably not what we want). And deleting "margin: 0 auto;" causes the wrapper to align with the left side of the screen. */
   /* Deleting the width causes the wrapper to take up the entire width of the screen! */
-  
+  /* Using "display: inline-block;" combined with setting the header's text-align to "center", instead of "margin: 0 auto;", doesn't look right, either. */
   /* I'll figure out the effects of deleting the wrapper itself (then setting "text-align: 0;" in the header) another time. */
 }
 
@@ -216,7 +217,7 @@ header {
   width: 100%; /* This forces the header to stay within the width of the body. */
   background: #fff; /* Check out the change of color everywhere! */
   z-index: 1; /* This puts it above everything; that may be the default, anyway. */
-  /* text-align: center; This was my own experiment; see .wrapper for more info. */
+  /* text-align: center; /* This was my own experiment; see .wrapper for more info. */
 }
 
 section {
