@@ -101,21 +101,22 @@ figcaption {
 } */
 
 /*//////// MY SPECIAL NAV STYLES ////////*/
+/* Note: I had to update these because I added another <nav> to the index page. */
 
-nav a:link {
+#logo + nav a:link {
   color: #03a9f4;
 }
 
-/* nav a[target="_blank"]:link {
+/* #logo + nav a[target="_blank"]:link {
   /* There's a bug causing the HUD link to be purple even when NOT visited (at least in Chrome). I tried to fix it here, but without success.
   color: #03a9f4;
 } */
 
-nav a:visited {
+#logo + nav a:visited {
   color: purple;
 }
 
-nav a:hover { /* Webkit might only be mainly supported by Chrome and Safari. */
+#logo + nav a:hover { /* Webkit might only be mainly supported by Chrome and Safari. */
   background: linear-gradient(to right, red, #00ff7f, blue);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; /* This will somehow override the nav a:active color in some browsers. However, if I use "color: transparent;", this will render the text invisible in OTHER browsers!  More experimentation is needed; it may be a bug. */
@@ -123,7 +124,7 @@ nav a:hover { /* Webkit might only be mainly supported by Chrome and Safari. */
   text-decoration-color: black; /* This is not supported in Edge/IE. */
 }
 
-nav a:active {
+#logo + nav a:active {
   color: white; /* This works in Firefox, but not in other browsers. */
 }
 
@@ -209,7 +210,7 @@ img, video, audio {
 
 /*//////// SECTIONS ////////*/
 
-header {
+header { /* I think I may need to adjust the top margin below this on other pages. */
   position: fixed; /* This has a WEIRD visual effect by itself! */
   /* Also, if this ^ is set to absolute and positioned like below, it still has a margin from its first <h1> child. */
   top: 0; /* Note: I didn't notice a change when adding the top and left properties; they may be the default. */
