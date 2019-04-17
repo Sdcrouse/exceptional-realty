@@ -28,27 +28,31 @@
       <a href="#">Facebook</a>
       <a href="#">Google Plus</a>
     </nav>
-    <header>
-      <div class="wrapper"> <!-- This lets me center the logo and links within the header, while allowing the header to stretch 100% across the screen. -->
-        <!-- I think I could center the div and the nav individually, but it makes more sense to put them in a wrapper that centers both at once. -->
-        <!-- I wonder if it's possible to do the same thing by using "text-align: center;" within the header selector? Although, I may not want to do that if I add more stuff to the header (outside of the wrapper). -->
-        <div id="logo">
+    
+    <header> <!-- This header section will have a shadow on it. Delete this comment when it does. -->
+      <div class="wrapper"> <!-- Note: some old comments have been deleted. Check the commits on the columns branch to see them. -->
+        <div id="logo"> <!-- This will be positioned below the navbar. -->
           <h1>Exceptional</h1> 
           <h2>Realty Group</h2>
         </div>
-        <nav>
-          <a href="index.html">About</a> 
-          <a href="new-properties.html">New Properties</a> 
-          <a href="real-estate-listings.html">Listings</a> 
-          <a href="market-report.html">Market Report</a> 
-          <a href="contact.html">Contact</a> 
-          <a href="https://www.hud.gov" target="_blank">H.U.D.</a>
-        </nav>
       </div> <!-- .wrapper -->
+      <div id="navbar"> <!-- This section will be fixed instead of the header, so you can always see these links. -->
+        <div class="wrapper">
+          <nav>
+            <a href="index.html">About</a> 
+            <a href="new-properties.html">New Properties</a> 
+            <a href="real-estate-listings.html">Listings</a> 
+            <a href="market-report.html">Market Report</a> 
+            <a href="contact.html">Contact</a> 
+            <a href="https://www.hud.gov" target="_blank">H.U.D.</a>
+          </nav>
+        </div> <!-- .wrapper -->
+      </div> <!-- #navbar -->
     </header>
     
     <!-- We are also centering the content in the main part of the document (up to the details section), so we need another wrapper here. -->
     <div class="wrapper clearfix">
+      
       <section id="featured-property" class="col-3 first"> <!-- This takes up the entire width of the wrapper. -->
         <!-- Suggested edit: Add a heading here. -->
         <figure>
