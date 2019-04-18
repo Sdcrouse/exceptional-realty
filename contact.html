@@ -1,98 +1,116 @@
 <!doctype html>
 <html lang="en">
-  <head>
+  <head> <!-- For the sake of consistency, I might add the rest of the metas and links from the index page. -->
     <meta charset="UTF-8">
     <title>Exceptional Realty Group - Luxury Homes - Contact</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
   </head>
+  
   <body>
-    <header>
-      <div id="logo">
-        <h1>Exceptional</h1>
-        <h2>Realty Group</h2>
-      </div>
+    <nav id="social"> <!-- Note: I changed this from a <div> to a more semantic <nav>. -->
+      <a href="#">Twitter</a>
+      <a href="#">Facebook</a>
+      <a href="#">Google Plus</a>
+    </nav>
+    
+    <div class="white-wood">
+      <header>
+        <div class="wrapper">
+          <div id="logo">
+            <h1>Exceptional</h1>
+            <h2>Realty Group</h2>
+          </div>
+        </div> <!-- .wrapper -->
+        <div id="navbar">
+          <div class="wrapper">
+            <nav>
+              <a href="index.html">About</a> 
+              <a href="new-properties.html">New Properties</a> 
+              <a href="real-estate-listings.html">Listings</a> 
+              <a href="market-report.html">Market Report</a> 
+              <a href="contact.html">Contact</a> 
+              <a href="https://www.hud.gov" target="_blank">H.U.D.</a>
+            </nav>
+          </div> <!-- .wrapper -->
+        </div> <!-- #navbar -->
+      </header>
       
-      <nav>
-        <a href="index.html">About</a> 
-        <a href="new-properties.html">New Properties</a> 
-        <a href="real-estate-listings.html">Listings</a> 
-        <a href="market-report.html">Market Report</a> 
-        <a href="contact.html">Contact</a> 
-        <a href="https://www.hud.gov" target="_blank">H.U.D.</a>
-      </nav>
-    </header>
-    
-    <h3>Contact</h3>
-    
-    <section>
-      <!-- Suggested edit: Add a heading here. -->
-      <!-- Map -->
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44637.75929579681!2d-122.69310471058787!3d45.633549569578136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5495af63c85914f9%3A0x8456d5112c91e3f3!2sVancouver%2C+WA!5e0!3m2!1sen!2sus!4v1549788688934" width="425" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
-      <!-- The frameborder attribute is obsolete. Use CSS instead. -->
-    </section>
-    
-    <section>
-      <!-- Suggested edit: Add a heading here. -->
-      <!-- Contact Form -->
-      <form action="#" method="post">
-        <label for="fullname">Name</label>
-        <input type="text" id="fullname" name="fullname" placeholder="Your Name" required />
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" placeholder="Your E-mail" required />
-        <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone" placeholder="Your Phone (optional)" />
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="10" placeholder="Enter your message here (optional)."></textarea>
-        <input type="submit" value="Send" />
-      </form>
-    </section>
+      <div class="wrapper clearfix">
+        
+        <section class="col-2 first shadow">
+          <!-- Suggested edit: Add a heading here. -->
+          <!-- Contact Form -->
+          <form action="#" method="post">
+            <label for="fullname">Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Your Name" required />
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="Your E-mail" required />
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone (optional)" />
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="10" placeholder="Enter your message here (optional)."></textarea>
+            <input type="submit" value="Send" />
+          </form>
+        </section> <!-- .col-2 -->
+        
+        <section class="col-1 shadow">
+          <!-- Suggested edit: Add a heading here. -->
+          <!-- Map -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44637.75929579681!2d-122.69310471058787!3d45.633549569578136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5495af63c85914f9%3A0x8456d5112c91e3f3!2sVancouver%2C+WA!5e0!3m2!1sen!2sus!4v1549788688934" width="425" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+          <!-- The frameborder attribute is obsolete. Use CSS instead. -->
+        </section> <!-- .col-1 -->
+        
+      </div> <!-- .wrapper -->
+    </div> <!-- .white-wood -->
     
     <section id="details">
-      <div>
-        <h3>Contact</h3>
-        <p>
-          E-mail: <a href="mailto:info@exceptionalrealty.com">info@exceptionalrealty.com</a>
-          <br>
-          Phone: +1 710 555 1234
-        </p>
+      <div class="wrapper clearfix">
+        <div class="col-1 first">
+          <h3>Contact</h3>
+          <p>
+            E-mail: <a href="mailto:info@exceptionalrealty.com">info@exceptionalrealty.com</a>
+            <br>
+            Phone: +1 710 555 1234
+          </p>
+          <h3>Correspondence</h3>
+          <address>
+            Exceptional Realty
+            <br>
+            P.O. Box 5555
+            <br>
+            Brooklyn, NY 11201
+          </address>
+        </div> <!-- .col-1 -->
         
-        <h3>Correspondence</h3>
-        <address>
-          Exceptional Realty
-          <br>
-          P.O. Box 5555
-          <br>
-          Brooklyn, NY 11201
-        </address>
-      </div>
-      
-      <div>
-        <h3>Links</h3>
-        <p>
-          <a href="#" target="_blank">Home Restoration</a>
-          <br>
-          <a href="#" target="_blank">Affordable Mortgages</a>
-          <br>
-          <a href="#" target="_blank">Professional Moving Crew</a>
-        </p>
-      </div>
-      
-      <div>
-        <h3>Follow</h3>
-        <p>
-          <a href="#" target="_blank">YouTube</a>
-          <br>
-          <a href="#" target="_blank">Facebook</a>
-          <br>
-          <a href="#" target="_blank">Twitter</a>
-        </p>
-      </div>
-    </section>
+        <div class="col-1">
+          <h3>Links</h3>
+          <p>
+            <a href="#" target="_blank">Home Restoration</a>
+            <br>
+            <a href="#" target="_blank">Affordable Mortgages</a>
+            <br>
+            <a href="#" target="_blank">Professional Moving Crew</a>
+          </p>
+        </div> <!-- .col-1 -->
+        
+        <div class="col-1">
+          <h3>Follow</h3>
+          <p>
+            <a href="#" target="_blank">YouTube</a>
+            <br>
+            <a href="#" target="_blank">Facebook</a>
+            <br>
+            <a href="#" target="_blank">Twitter</a>
+          </p>
+        </div> <!-- .col-1 -->
+      </div> <!-- .wrapper -->
+    </section> <!-- #details -->
     
     <footer>
-      &copy;2019 Exceptional Realty. All Rights Reserved.
+      &copy; 2019 Exceptional Realty. All Rights Reserved.
     </footer>
+    
   </body>
 </html>
