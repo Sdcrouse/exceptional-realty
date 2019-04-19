@@ -19,13 +19,13 @@
   
   <body> 
     <!-- We could put a wrapper class here and center all of its content, but some content stretches the entire width of the screen. -->
-    <nav id="social"> <!-- These links are sticky (fixed positioning) and vertically stacked in the upper-right-hand corner of the screen. -->
-      <!-- Note: I changed this from a <div> to a more semantic <nav>. -->
+    <div id="social"> <!-- These links are sticky (fixed positioning) and vertically stacked in the upper-right-hand corner of the screen. -->
+      <!-- Note: I changed this from a <nav> back to a <div>. <nav> is inappropriate to use here, and it likely conflicts with the intended CSS styles. -->
       <!-- Each of these will be icons; delete this comment once they are. -->
       <a href="#">Twitter</a>
       <a href="#">Facebook</a>
       <a href="#">Google Plus</a>
-    </nav>
+    </div>
     
     <header> <!-- This header section will have a shadow on it. Delete this comment when it does. -->
       <div class="wrapper"> <!-- Note: some old comments have been deleted. Check the commits on the columns branch to see them. -->
