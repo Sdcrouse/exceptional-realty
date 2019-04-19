@@ -1,24 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Elsie+Swash+Caps:400,900');
 @import url('https://fonts.googleapis.com/css?family=Clicker+Script');
 
-/* This 
-is 
-a comment! */
+/*//////////// GLOBAL ////////////*/
 
-/* CSS Syntax:
-
-selector {
-  property: value;
-  property: value;
+h3 {
+  margin: 0 0 10px;
 }
 
-*/
-
-/* Type selector */
-
-p { /* select all <p> */
+p {
   font-size: 1em; /* 16px, ?pt, 100%, 1em */
   line-height: 1.5em;
+}
+
+figure {
+  margin: 0 0 10px;
 }
 
 figcaption {
@@ -32,32 +27,112 @@ figcaption {
   text-align: right;
 }
 
-/* Class selector (applied to as many elements as you like) */
-
-.milk-text { /* select elements with class="milk-text" */
+.milk-text {
   font: bold 2.6em "Elsie Swash Caps", cursive;
   /* I may change the font to Clicker Script later. */
   color: white;
   text-shadow: 0 2px 3px #000;
-  
-  /* Alternative background (without the image):
-  background-color: #3297FD;
-  display: inline-block; */
 }
 
-/*.milk-text::selection {
-  background-color: red;
-}*/
 
 
-/* ID selector (apply to one unique element per page) */
+/*//////////// BACKGROUNDS ////////////*/
 
-#logo {  /* select elements with id="logo" */
+
+
+/*//////// MEDIA ////////*/
+
+img, video, audio, iframe, table, form {
+  width: 100%; /* IE */
+  max-width: 100%; /* FF, Safari, Chrome */
 }
 
-/* Descendant Selector */
+/* #featured-property img { /* Note: I set this property myself so that you can see the entire image. Delete this if necessary (but test it against the new code first).
+  margin-top: 150px;
+} */
 
-#logo h1 { /* selects <h1> if inside id="logo" */
+/*//////// FIXES ////////*/
+
+* {
+  -webkit-box-sizing: border-box; /* Older versions of Safari */
+  -moz-box-sizing: border-box; /* Older versions of Firefox */
+  box-sizing: border-box; /* Virtually everything else */
+}
+
+.clearfix::after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+/*//////// LAYOUT ////////*/
+
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.col-1 {
+  float: left;
+  width: 32%;
+  background: #ccc;
+}
+
+.col-2 {
+  float: left;
+  width: 66%;
+  background: #ccc;
+}
+
+.col-3 {
+  background: #ccc;
+}
+
+[class*="col-"] {
+  margin-left: 2%;
+}
+
+.first {
+  margin-left: 0; 
+}
+
+/*//////// SOCIAL ////////*/
+
+#social {
+  position: fixed;
+  top: 200px;
+  right: 20px;
+  width: 40px;
+  z-index: 1;
+}
+
+#social a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: yellow;
+}
+
+/*////////// HEADER //////////*/
+
+
+
+/*////////// NAVBAR //////////*/
+
+
+
+/*////////// LOGO //////////*/
+
+
+
+#logo h1 {
   font-family: 'Clicker Script', cursive;
 }
 
@@ -65,11 +140,31 @@ figcaption {
   font-family: 'Elsie Swash Caps', cursive;
 }
 
-/* Pseudo-Class Selector */
+/*//////// MAIN SECTIONS ////////*/
 
-#details a:link, a:visited { 
-  /* Remember to comma-separate selectors that have the same property values!
-  This is called a compound selector. */
+section {
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+/* header {
+  position: fixed; 
+  top: 0; 
+  left: 0;
+  width: 100%;
+  background: #fff; 
+  z-index: 1; 
+} This may no longer be needed. */
+
+/*////////// DETAILS //////////*/
+
+
+
+#details div {
+  height: 221px;
+}
+
+#details a:link, a:visited {
   color: black;
   text-decoration: underline; /* This was set to none, but that makes it impossible to tell links apart from regular text. */
 }
@@ -83,111 +178,82 @@ figcaption {
   color: red;
 }
 
-/* This may be better form (possibly NOT, given the usual pseudo-class order):
-#details a:link, a:hover, a:visited {
-  text-decoration: underline;
-}
+/*////////// FOOTER //////////*/
 
-#details a:link, a:visited {
-  color: black;
-}
 
-#details a:hover {
-  color: blue;
-}
-
-#details a:active {
-  color: red;
-} */
 
 /*//////// MY SPECIAL NAV STYLES ////////*/
-/* Note: I had to update these because I added another <nav> to the index page. */
 
-#logo + nav a:link {
+/* Note: I had to update these because I added another <nav> to the index page. */
+/* It looks like I will have to update this again, since these styles don't work now. */
+
+/* #logo + nav a:link {
   color: #03a9f4;
 }
-
-/* #logo + nav a[target="_blank"]:link {
-  /* There's a bug causing the HUD link to be purple even when NOT visited (at least in Chrome). I tried to fix it here, but without success.
-  color: #03a9f4;
-} */
 
 #logo + nav a:visited {
   color: purple;
 }
 
-#logo + nav a:hover { /* Webkit might only be mainly supported by Chrome and Safari. */
+#logo + nav a:hover {
   background: linear-gradient(to right, red, #00ff7f, blue);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; /* This will somehow override the nav a:active color in some browsers. However, if I use "color: transparent;", this will render the text invisible in OTHER browsers!  More experimentation is needed; it may be a bug. */
-  color: black; /* For non-Webkit-supported browsers. */
-  text-decoration-color: black; /* This is not supported in Edge/IE. */
+  -webkit-text-fill-color: transparent;
+  color: black;
+  text-decoration-color: black;
 }
 
 #logo + nav a:active {
-  color: white; /* This works in Firefox, but not in other browsers. */
+  color: white;
+} */
+
+/*//////// STYLING NOTES ////////*/
+
+/*figcaption {
+  /*font-weight: normal;
+  font-size: 0.75em;
+  line-height: 1.5em;
+  font-family: Georgia, "Times New Roman", serif;
+  font: normal 0.75em/1.5em 'Elsie Swash Caps', cursive; 
+  /* Note: Georgia is MUCH easier to see than either of the imported fonts.
+  color: #777;
+  text-align: right;
 }
 
-/*//////// MEDIA ////////*/
-
-img, video, audio {
-  /* This allows img, video, and audio elements to be fluid in their sizing. */
-  /* "They will always be 100% within the confines of their parent container (which in this case is the column that they're in)." */
-  /* Correction: Their parent containers are the <figure> elements, which are then confined within the columns. */
-  max-width: 100%;
+.milk-text {
+  font: bold 2.6em "Elsie Swash Caps", cursive;
+  /* I may change the font to Clicker Script later.
+  color: white;
+  text-shadow: 0 2px 3px #000;
+  
+  /* Alternative background (without the image):
+  background-color: #3297FD;
+  display: inline-block;
 }
 
-#featured-property img { /* Note: I set this property myself so that you can see the entire image. Delete this if necessary. */
+/*.milk-text::selection {
+  background-color: red;
+}
+
+img, video, audio, iframe, table, form {
+  /* This allows img, video, audio, etc. elements to be fluid in their sizing. 
+  /* "They will always be 100% within the confines of their parent container (which in this case is the column that they're in)." 
+  /* Correction: Their parent containers are the <figure> elements, which are then confined within the columns. 
+  width: 100%; /* IE 
+  max-width: 100%; /* FF, Safari, Chrome 
+}
+
+/* #featured-property img { /* Note: I set this property myself so that you can see the entire image. Delete this if necessary (but test it against the new code first).
   margin-top: 150px;
+} 
+
+* { /* This solves a problem with width and padding (see the "section" selector). 
+  -webkit-box-sizing: border-box; /* Older versions of Safari 
+  -moz-box-sizing: border-box; /* Older versions of Firefox 
+  box-sizing: border-box; /* Virtually everything else 
 }
 
-/*//////// LAYOUT ////////*/
-
-* { /* This solves a problem with width and padding (see the "section" selector). */
-  -webkit-box-sizing: border-box; /* Older versions of Safari */
-  -moz-box-sizing: border-box; /* Older versions of Firefox */
-  box-sizing: border-box; /* Virtually everything else */
-}
-
-.wrapper {
-  /* display: inline-block; */
-  width: 960px;
-  margin: 0 auto; /* Would it be better to use "text-align: center;" in the header instead of making this wrapper class? */
-  /* Answer: no. Setting "text-align: center;" causes all of the text inside the header, logo, etc. to center (probably not what we want). And deleting "margin: 0 auto;" causes the wrapper to align with the left side of the screen. */
-  /* Deleting the width causes the wrapper to take up the entire width of the screen! */
-  /* Using "display: inline-block;" combined with setting the header's text-align to "center", instead of "margin: 0 auto;", doesn't look right, either. */
-  /* I'll figure out the effects of deleting the wrapper itself (then setting "text-align: 0;" in the header) another time. */
-}
-
-/* In this part of the layout, we will have (at most) a three-column structure. So, we'll make three classes: */
-
-.col-1 { /* Spans 1/3 of the space (its parent element, the wrapper) */
-  float: left; /* Whenever we have a column structure where we need columns to exist side-by-side with other columns, we need them to float. */
-  /* We want a margin of ~2% between each column. My guess: set margin to "0 1%", as I'm pretty sure the margins of columns will add together, not overlap. */
-  /* Update: we are instead taking 100% and subtracting 2% for each column, yielding the width of the space in-between. My initial thought changed to "margin: 31.333%;", but I think we'll instead set the WIDTH to 31.333%. */ 
-  width: 32%; 
-  /* Update 2: evidently, the columns are block-level, not inline, so their margins overlap. Therefore, to have 2% margin on each side of the element, we subtract 4% from 100% and get 96%. Dividing that by 3 yields the width of each column (32%). */
-  /* Update 3: I don't think this yields 2% MARGIN on each side, but 2% PADDING! The border's width is 0 by default, but I think there is SOME margin by default. */
-  /* Update 4: It's even SIMPLER than that! Check out the .col-2 notes below. */
-  background: #ccc;
-}
-
-.col-2 { /* Spans 2/3 of the wrapper (the width of TWO regular columns) */
-  float: left;
-  /* My guess: we still want 2% spacing on the left and right, so the width will be 100% - 4% - 32% - 4% = 2 x 32% - 4% = 60%. We subtract that extra 4% to get the needed spacing on the second column. */
-  width: 66%; 
-  /* I misunderstood. To get the width of each col-1, we calculated (100% - 4%) / 3% = 32%, yielding 2% margin between each column. */
-  /* Now, col-2 takes up the space of 2 col-1's PLUS the space between them, so the width of col-2 = 2 x 32% + 2% = 66%. Draw it out; it makes sense! */
-  background: #ccc;
-}
-
-.col-3 { /* Spans across ALL of the wrapper's space */
-  /* No floating is needed here, since this takes up the whole space, with nothing beside it. */
-  /* Also, since this is a block-level element, its width is already 100% by default. */
-  background: #ccc;
-}
-
-.clearfix::after { /* This solves the "collapsing parent element with floating children" issue. */
+.clearfix::after { /* This solves the "collapsing parent element with floating children" issue. 
   content: ".";
   display: block;
   clear: both;
@@ -196,41 +262,63 @@ img, video, audio {
   line-height: 0;
 }
 
-[class*="col-"] { /* Note that this is also possible with [class|="col"] or [class^="col-"] */
-  /* This is one solution to setting the margins of all of our columns, but it's not the best one. It will add an unnecessary 2% left margin to the left-most column.*/
+.clear {
+  clear: both;
+}
+
+.wrapper {
+  /* display: inline-block; 
+  width: 960px;
+  margin: 0 auto; /* Would it be better to use "text-align: center;" in the header instead of making this wrapper class? 
+  /* Answer: no. Setting "text-align: center;" causes all of the text inside the header, logo, etc. to center (probably not what we want). And deleting "margin: 0 auto;" causes the wrapper to align with the left side of the screen. 
+  /* Deleting the width causes the wrapper to take up the entire width of the screen! 
+  /* Using "display: inline-block;" combined with setting the header's text-align to "center", instead of "margin: 0 auto;", doesn't look right, either. 
+  /* I'll figure out the effects of deleting the wrapper itself (then setting "text-align: 0;" in the header) another time. 
+  /* I have more notes related to this in my HTML and CSS document. 
+}
+
+/* In this part of the layout, we have (at most) a three-column structure. So, we've made three classes:
+
+.col-1 { /* Spans 1/3 of the space (its parent element, the wrapper) 
+  float: left; /* Whenever we have a column structure where we need columns to exist side-by-side with other columns, we need them to float. 
+  /* We want a margin of ~2% between each column. My guess: set margin to "0 1%", as I'm pretty sure the margins of columns will add together, not overlap.
+  /* Update: we are instead taking 100% and subtracting 2% for each column, yielding the width of the space in-between. My initial thought changed to "margin: 31.333%;", but I think we'll instead set the WIDTH to 31.333%. 
+  width: 32%; 
+  /* Update 2: evidently, the columns are block-level, not inline, so their margins overlap. Therefore, to have 2% margin on each side of the element, we subtract 4% from 100% and get 96%. Dividing that by 3 yields the width of each column (32%). 
+  /* Update 3: I don't think this yields 2% MARGIN on each side, but 2% PADDING! The border's width is 0 by default, but I think there is SOME margin by default. 
+  /* Update 4: It's even SIMPLER than that! Check out the .col-2 notes below. 
+  background: #ccc;
+}
+
+.col-2 { /* Spans 2/3 of the wrapper (the width of TWO regular columns) 
+  float: left;
+  /* My guess: we still want 2% spacing on the left and right, so the width will be 100% - 4% - 32% - 4% = 2 x 32% - 4% = 60%. We subtract that extra 4% to get the needed spacing on the second column. 
+  width: 66%; 
+  /* I misunderstood. To get the width of each col-1, we calculated (100% - 4%) / 3% = 32%, yielding 2% margin between each column. 
+  /* Now, col-2 takes up the space of 2 col-1's PLUS the space between them, so the width of col-2 = 2 x 32% + 2% = 66%. Draw it out; it makes sense! 
+  background: #ccc;
+}
+
+.col-3 { /* Spans across ALL of the wrapper's space 
+  /* No floating is needed here, since this takes up the whole space, with nothing beside it. 
+  /* Also, since this is a block-level element, its width is already 100% by default. 
+  background: #ccc;
+}
+
+[class*="col-"] { /* Note that this is also possible with [class|="col"] or [class^="col-"] 
+  /* This is one solution to setting the margins of all of our columns, but it's not the best one. It will add an unnecessary 2% left margin to the left-most column.
   margin-left: 2%;
 }
 
-.first { /* Remember that this is a CLASS, not the :first or :first-child pseudo-class! */
-  /* One solution to the problem in the [class*="col"] selector: add a class to the first column of each wrapper in our layout, and tell it not to have any margin. */
-  /* I get the feeling that this is a bad idea, especially as our code grows. It doesn't appear to follow responsive design, and it will be hard to extend and debug. */
-  margin-left: 0; /* The original value was 0%, but the % is not needed. */
-  /* Note: Be REALLY careful of the order that you write these selectors. [class*=”col”] and .first have the SAME specificity, so the one written later OVERRIDES the one written earlier! */
+.first { /* Remember that this is a CLASS, not the :first or :first-child pseudo-class! 
+  /* One solution to the problem in the [class*="col"] selector: add a class to the first column of each wrapper in our layout, and tell it not to have any margin. 
+  /* I get the feeling that this is a bad idea, especially as our code grows. It doesn't appear to follow responsive design, and it will be hard to extend and debug. 
+  margin-left: 0; /* The original value was 0%, but the % is not needed. 
+  /* Note: Be REALLY careful of the order that you write these selectors. [class*=”col”] and .first have the SAME specificity, so the one written later OVERRIDES the one written earlier! 
 }
 
-/*//////// SECTIONS ////////*/
-
-header { /* I think I may need to adjust the top margin below this on other pages. */
-  position: fixed; /* This has a WEIRD visual effect by itself! */
-  /* Also, if this ^ is set to absolute and positioned like below, it still has a margin from its first <h1> child. */
-  top: 0; /* Note: I didn't notice a change when adding the top and left properties; they may be the default. */
-  left: 0;
-  width: 100%; /* This forces the header to stay within the width of the body. */
-  background: #fff; /* Check out the change of color everywhere! */
-  z-index: 1; /* This puts it above everything; that may be the default, anyway. */
-  /* text-align: center; /* This was my own experiment; see .wrapper for more info. */
-}
-
-section {
-  padding: 20px; /* This prevents the text from being right up against the edge. However, it ALSO increases the width of the element due to the W3C box model. */
-  /* This can easily be fixed by setting "box-sizing: border-box;" for all elements (as I did in the LAYOUT section above). This forces the browser to use the IE box model. */
-  margin-bottom: 20px;
-}
-
-/*//////// SOCIAL ////////*/
-
-/* By default, #social's content is in the top left corner of the screen, and its <a> links are positioned inline/side-by-side. */
-/* The goal is to get the <a> elements within #social to stack vertically and remain fixed in the top-right corner of the screen. Here was my FIRST attempt: */
+/* By default, #social's content is in the top left corner of the screen, and its <a> links are positioned inline/side-by-side. 
+/* The goal is to get the <a> elements within #social to stack vertically and remain fixed in the top-right corner of the screen. Here was my FIRST attempt: 
 
 /* #social {
   position: absolute; /* fixed; static; relative; 
@@ -267,17 +355,107 @@ section {
 
 /* Jon Grover's solution: */
 
-#social {
-  position: fixed; /* Evidently, fixed positioning (by itself) overrides the block-level behavior of a <div> here. I'll have to check this out more. */
-  top: 200px; /* 200px downward from the top */
-  right: 20px; /* 20px leftward from the right */
+/* #social {
+  position: fixed; /* Evidently, fixed positioning (by itself) overrides the block-level behavior of a <div> here. I'll have to check this out more.
+  top: 200px; /* 200px downward from the top
+  right: 20px; /* 20px leftward from the right
   width: 40px;
-  z-index: 1; /* This ensures that the element is always on top of everything else. */
+  z-index: 1; /* This ensures that the element is always on top of everything else.
 }
 
 #social a {
-  display: block; /* This lets the links stack vertically. */
+  display: block; /* This lets the links stack vertically.
   width: 40px;
   height: 40px;
   background: yellow;
 }
+
+#logo h1 {
+  font-family: 'Clicker Script', cursive;
+}
+
+#logo h2 {
+  font-family: 'Elsie Swash Caps', cursive;
+}
+
+section {
+  padding: 20px; /* This prevents the text from being right up against the edge. However, it ALSO increases the width of the element due to the W3C box model.
+  /* This can easily be fixed by setting "box-sizing: border-box;" for all elements (as I did in the LAYOUT section above). This forces the browser to use the IE box model.
+  margin-bottom: 20px;
+}
+
+header { /* I think I may need to adjust the top margin below this on other pages.
+  position: fixed; /* This has a WEIRD visual effect by itself!
+  /* Also, if this ^ is set to absolute and positioned like below, it still has a margin from its first <h1> child.
+  top: 0; /* Note: I didn't notice a change when adding the top and left properties; they may be the default.
+  left: 0;
+  width: 100%; /* This forces the header to stay within the width of the body.
+  background: #fff; /* Check out the change of color everywhere!
+  z-index: 1; /* This puts it above everything; that may be the default, anyway.
+  /* text-align: center; /* This was my own experiment; see .wrapper for more info.
+} /* Note: This section may no longer be needed.
+
+#details div {
+  height: 221px;
+}
+
+#details a:link, a:visited { 
+  /* Remember to comma-separate selectors that have the same property values!
+  This is called a compound selector.
+  color: black;
+  text-decoration: underline; /* This was set to none, but that makes it impossible to tell links apart from regular text.
+}
+
+#details a:hover { 
+  color: blue; /* This was set to black. I changed it for more contrast.
+  text-decoration: underline;
+}
+
+#details a:active {
+  color: red;
+}
+
+/* This may be better form (possibly NOT, given the usual pseudo-class order):
+#details a:link, a:hover, a:visited {
+  text-decoration: underline;
+}
+
+#details a:link, a:visited {
+  color: black;
+}
+
+#details a:hover {
+  color: blue;
+}
+
+#details a:active {
+  color: red;
+}
+
+/* Note: I had to update these because I added another <nav> to the index page.
+/* It looks like I will have to update this again, since these styles don't work now.
+
+#logo + nav a:link {
+  color: #03a9f4;
+}
+
+/* #logo + nav a[target="_blank"]:link {
+  /* There's a bug causing the HUD link to be purple even when NOT visited (at least in Chrome). I tried to fix it here, but without success.
+  color: #03a9f4;
+}
+
+#logo + nav a:visited {
+  color: purple;
+}
+
+#logo + nav a:hover { /* Webkit might only be mainly supported by Chrome and Safari.
+  background: linear-gradient(to right, red, #00ff7f, blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* This will somehow override the nav a:active color in some browsers. However, if I use "color: transparent;", this will render the text invisible in OTHER browsers!  More experimentation is needed; it may be a bug.
+  color: black; /* For non-Webkit-supported browsers.
+  text-decoration-color: black; /* This is not supported in Edge/IE.
+}
+
+#logo + nav a:active {
+  color: white; /* This works in Firefox, but not in other browsers.
+} */
