@@ -45,7 +45,6 @@ figcaption {
   padding-right: 30px;
 }
 
-
 /*//////////// BACKGROUNDS ////////////*/
 
 .white-wood { /* Remember to do this when I want to add a background image! */
@@ -248,7 +247,14 @@ header {
   border-right: 1px solid #ccc;
   text-decoration: none;
   font: 1em, "Trebuchet MS", Arial, sans-serif;
+  
+  /* My alternative style:
+  color: #03a9f4; */
 }
+
+/* #navbar nav a:visited { /* My alternative style
+  color: purple;
+} */
 
 #navbar nav a.selected { /* This is for visually showing which page the user is on.
   See the STYLING NOTES for more information. */
@@ -322,12 +328,28 @@ header {
     rgba(0, 0, 0, 1) 100%
   ); /* W3C */
   /* Evidently, the filter property is not needed here, either. */
+  
+  /*////////////////// My alternative style //////////////////*/
+  
+  /* background: linear-gradient(to right, red, #00ff7f, blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: black;
+  text-decoration-color: black;
+  /* This is a neat effect, but I like Mozilla's alternative of black text against a linear-gradient background better. */
 }
+
+/* div#navbar.light-fade .wrapper nav a:active { /* This only works in Mozilla, even with all of that added specificity. 
+  Not sure what's going on here, so I'll have to experiment later.
+  It may have to do with the webkit stuff I did in "#navbar nav a:hover".
+  See the "MY SPECIAL NAV STYLES" section for more information.
+  color: white;
+} */
 
 /*////////// LOGO //////////*/
 
 #logo { /* This pushes the logo below the fixed navbar. */
-  padding: 84px 0 0; /* I'm pretty sure that this is equivalent to "padding-top: 84px", but this ensures that we don't have extra padding anywhere else. */
+  padding: 84px 0 0; /* I'm pretty sure that this is equivalent to "padding-top: 84px", but this makes SURE that we don't have extra padding anywhere else. */
 }
 
 #logo h1 {
@@ -382,31 +404,6 @@ footer {
   background: #eee; /* Light gray */
   border-top: 1px solid #ccc; /* Medium gray border between #details and footer */
 }
-
-/*//////// MY SPECIAL NAV STYLES ////////*/
-
-/* Note: I had to update these because I added another <nav> to the index page. */
-/* It looks like I will have to update this again, since these styles don't work now. */
-
-/* #logo + nav a:link {
-  color: #03a9f4;
-}
-
-#logo + nav a:visited {
-  color: purple;
-}
-
-#logo + nav a:hover {
-  background: linear-gradient(to right, red, #00ff7f, blue);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: black;
-  text-decoration-color: black;
-}
-
-#logo + nav a:active {
-  color: white;
-} */
 
 /*//////// STYLING NOTES ////////*/
 
@@ -705,10 +702,12 @@ header { /* I think I may need to adjust the top margin below this on other page
 
 #details a:active {
   color: red;
-}
+} */
 
-/* Note: I had to update these because I added another <nav> to the index page (in the columns branch, I think).
-/* It looks like I will have to update this again, since these styles don't work now.
+/* //////// MY SPECIAL NAV STYLES //////// */
+
+/* Note: I had to update these because I changed the HTML of the webpages.
+/* These styles don't work now, but they have been updated in the appropriate sections.
 
 #logo + nav a:link {
   color: #03a9f4;
