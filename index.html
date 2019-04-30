@@ -21,24 +21,23 @@
   <body> <!-- Be sure to apply the shadows and gradients to the other webpages as well. -->
     <div id="social"> <!-- These links are sticky (fixed positioning) and vertically stacked in the upper-right-hand corner of the screen. -->
       <!-- Note: I changed this from a <nav> back to a <div>. <nav> is inappropriate to use here, and it likely conflicts with the intended CSS styles. -->
-      <!-- Each of these will be icons; delete this comment once they are. -->
-      <a href="#">Twitter</a>
-      <a href="#">Facebook</a>
-      <a href="#">Google Plus</a>
+      <a class="twit" href="#" title="Twitter">Twitter</a>
+      <a class="fbook" href="#" title="Facebook">Facebook</a>
+      <a class="gplus" href="#" title="Google Plus">Google Plus</a>
     </div>
     
     <div class="white-wood"> <!-- This applies to all of the following sections, up to but not including #details. -->
       <header class="medium-fade shadow">
         <div class="wrapper"> <!-- Note: some old comments have been deleted. Check the commits on the columns branch to see them. -->
           <div id="logo"> <!-- This is positioned below the navbar. -->
-            <h1>Exceptional</h1> <!-- These headings may later get replaced by images. Delete this comment once that happens. -->
-            <h2>Realty Group</h2>
+            <h1>Exceptional Realty Group</h1> <!-- These headings may later get replaced by images. Delete this comment once that happens. -->
+            <h2>Exceptional Realty Group</h2>
           </div>
         </div> <!-- .wrapper -->
         <div id="navbar" class="light-fade"> <!-- This section, instead of the entire header, will be fixed to the top of the screen, so you can always see these links. -->
           <div class="wrapper">
-            <nav>
-              <a class="selected" href="index.html">About</a><a href="new-properties.html">New Properties</a><a href="real-estate-listings.html">Listings</a><a href="market-report.html">Market Report</a><a href="contact.html">Contact</a><a href="https://www.hud.gov" target="_blank">H.U.D.</a>
+            <nav class="clearfix"> <!-- I can't say for sure, but this class may need to be added to the other webpages. -->
+              <a class="selected" href="index.html">About</a><a href="new-properties.html">New Properties</a><a href="real-estate-listings.html">Listings</a><a href="market-report.html">Market Report</a><a href="contact.html">Contact</a><a href="https://www.hud.gov" target="_blank">H.U.D.</a><a class="menu-icon">&#9776;</a>
             </nav>
           </div> <!-- .wrapper -->
         </div> <!-- #navbar -->
@@ -53,9 +52,7 @@
             <figcaption>345 Carl Street Apt 12, Carrol Rd. Brooklyn, NY - Photo by Denise Richards.</figcaption>
           </figure>
         
-          <p>Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Quae, perferendis nisi nihil debitis aspernatur doloribus quam eveniet quibusdam tempora esse! Repudiandae, assumenda, debitis doloribus ea eius ab at quae totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, inventore aliquid ipsam debitis nulla vitae omnis nemo quisquam? Obcaecati dolor ipsum distinctio reprehenderit aliquid autem ea vel provident voluptas nisi.</p>
-          
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus, nobis, tempore recusandae culpa deleniti dignissimos laborum perspicatis exercitationem obcaecati dolores unde eveniet eius debitis preferendis provident porro. Ipsum, placeat.</p>
+          <p>Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Quae, perferendis nisi nihil debitis aspernatur doloribus quam eveniet quibusdam tempora esse! Repudiandae, assumenda, debitis doloribus ea eius ab at quae totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, inventore aliquid ipsam debitis nulla vitae omnis nemo quisquam? Obcaecati dolor ipsum distinctio reprehenderit aliquid autem ea vel provident voluptas nisi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus, nobis, tempore recusandae culpa deleniti dignissimos laborum perspicatis exercitationem obcaecati dolores unde eveniet eius debitis preferendis provident porro. Ipsum, placeat.</p>
         </section>
         
         <section id="promotional" class="col-2 first shadow"> <!-- This takes up 2/3 of the wrapper's width and is a left column. -->
@@ -64,8 +61,7 @@
             <video controls>
               <source src="videos/real-estate.mp4" type="video/mp4">
               <source src="videos/real-estate.ogv" type="video/ogg">
-              Your browser does not support HTML5 video. 
-              <a href="https://browsehappy.com/" target="_blank">Please upgrade your browser.</a>
+              Your browser does not support HTML5 video. <a href="https://browsehappy.com/" target="_blank">Please upgrade your browser.</a>
             </video>
             <figcaption>Exceptional Realty Group Promotional Video - Source: archive.org</figcaption>
           </figure>
@@ -75,6 +71,7 @@
           <h3>Company News</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, inventore, vero, rerum ullam nihil sapiente tempora molestias quis ducimus ipsum laborum vel. Tempore perspiciatis ea error dignissimos libero recusandae explicabo.</p>
         </section>
+        
       </div> <!-- .wrapper .clearfix -->
     </div> <!-- .white-wood -->
     
@@ -122,7 +119,7 @@
     </section> <!-- #details -->
     
     <footer>
-      &copy;2019 Exceptional Realty. All Rights Reserved.
+      &copy; 2019 Exceptional Realty. All Rights Reserved.
     </footer>
     
   </body>
