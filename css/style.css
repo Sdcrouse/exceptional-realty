@@ -1,16 +1,28 @@
-/* I think that .col-1, .shadow, and other classes have caused some uneven spacing between elements on the webpages; I'll fiddle around with this later. */
+/* Note: Be sure to move some of these comments to the STYLING NOTES section (and update the selectors in that section, too). */
 
 @import url('https://fonts.googleapis.com/css?family=Elsie+Swash+Caps:400,900');
 @import url('https://fonts.googleapis.com/css?family=Clicker+Script');
 
 /*//////////// GLOBAL ////////////*/
 
+body {
+  font-size: 100%; /* I'm pretty sure this is the default, anyway. Maybe that changes for other devices? */
+}
+
 h3 {
   margin: 0 0 10px;
 }
 
-p {
-  font-size: 1em; /* 16px, ?pt, 100%, 1em */
+ul, ol {
+  margin-bottom: 10px;
+}
+
+li {
+  margin-left: 20px;
+}
+
+p, address {
+  font-size: 1em; /* 16px, ?pt, 100%, 1em (This is the default as long as the body's font-size is 16px.) */
   line-height: 1.5em;
 }
 
@@ -27,6 +39,57 @@ figcaption {
   /* Note: Georgia is MUCH easier to see than either of the imported fonts. */
   color: #777;
   text-align: right;
+}
+
+table { /* Here and in other selectors, the color and borders add a nice 3D effect. */
+  margin: 0 0 20px;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+
+tr:nth-child(even) {
+  background: #efefef;
+}
+
+th, td {
+  padding: 10px;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+th { /* I couldn't tell before, but I think th's (table headings) are centered in their cells by default. */
+  background: #555;
+  color: white;
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+  box-shadow: 0 3px 5px #ccc;
+  border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+  margin-top: 5px; /* This may not be needed; I saw no difference, since the input's margin overlaps the bottom margin of the textarea above it (b/c both display as blocks). */
+  width: 100px;
+  background: black;
+  color: white;
+  border-radius: 25px;
+  border: 0; /* This makes the button crisper (less pixelated). */
+}
+
+input[type="submit"]:hover {
+  background: #555;
+}
+
+iframe {
+  border: 0; /* This is default and/or overridden by the browser's element.style rule. */
+  padding: 0; /* This is already the default. */
+  margin: 0; /* This is already the default. */
+  overflow: hidden; /* I don't yet know why this is needed. */
+  height: 403px;
 }
 
 .milk-text {
@@ -185,7 +248,16 @@ img, video, audio, iframe, table, form {
   width: 66%;
 }
 
-.col-3 { /* Delete this unless I use it in another lesson. */
+.col-3 p { 
+  -moz-column-rule: 1px dotted #ccc;
+  -webkit-column-rule: 1px dotted #ccc;
+  column-rule: 1px dotted #ccc;
+  -moz-column-gap: 1.5em;
+  -webkit-column-gap: 1.5em;
+  column-gap: 1.5em;
+  -moz-column-count: 3;
+  -webkit-column-count: 3;
+  column-count: 3;
 }
 
 [class*="col-"] {
@@ -200,18 +272,36 @@ img, video, audio, iframe, table, form {
 
 #social {
   position: fixed;
-  top: 200px;
+  top: 163px;
   right: 20px;
   width: 40px;
-  z-index: 1;
+  z-index: 2;
 }
 
 #social a {
   display: block;
   width: 40px;
   height: 40px;
-  background: yellow;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
 }
+
+a.fbook, a.twit, a.gplus {
+  background: url(../images/social-icons.png) no-repeat;
+}
+
+a.fbook { background-position: 0 0; }
+a.fbook:hover { background-position: -40px 0; }
+a.fbook:active { background-position: -80px 0; }
+
+a.twit { background-position: 0 -40px; }
+a.twit:hover { background-position: -40px -40px; }
+a.twit:active { background-position: -80px -40px; }
+
+a.gplus { background-position: 0 -80px; }
+a.gplus:hover { background-position: -40px -80px; }
+a.gplus:active { background-position: -80px -80px; }
 
 /*////////// HEADER //////////*/
 
@@ -339,6 +429,10 @@ header {
   /* This is a neat effect, but I like Mozilla's alternative of black text against a linear-gradient background better. */
 }
 
+#navbar nav a.menu-icon {
+  display: none;
+}
+
 /* div#navbar.light-fade .wrapper nav a:active { /* This only works in Mozilla, even with all of that added specificity. 
   Not sure what's going on here, so I'll have to experiment later.
   It may have to do with the webkit stuff I did in "#navbar nav a:hover".
@@ -349,17 +443,32 @@ header {
 /*////////// LOGO //////////*/
 
 #logo { /* This pushes the logo below the fixed navbar. */
-  padding: 84px 0 0; /* I'm pretty sure that this is equivalent to "padding-top: 84px", but this makes SURE that we don't have extra padding anywhere else. */
+  padding: 74px 0 0; /* I'm pretty sure that this is equivalent to "padding-top: 74px", but this makes SURE that we don't have extra padding anywhere else. */
 }
 
-#logo h1 {
-  font-family: 'Clicker Script', cursive;
+#logo h1 { /* Interesting. We deleted the Clicker Script font-family and replaced it with our exceptional logo! */
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
   margin: 0; /* This gets rid of unwanted spacing. */
+  background: url(../images/exceptional-logo.png) no-repeat;
+  background-size: 100% 100%;
 }
 
-#logo h2 {
-  font-family: 'Elsie Swash Caps', cursive;
+#logo h2 { /* Among other changes, we changed the font-family from Elsie Swash Caps to Clicker Script. */
+  display: inline-block;
+  font: 2.5em "Clicker Script", cursive;
+  /* font-family: 'Elsie Swash Caps', cursive; */
+  /* Interesting. If I leave BOTH of the above two properies uncommented, the second one overrides everything except the font-size!
+  (Essentially, it's a bigger Elsie Swash Caps.) */
   margin: 0; /* This gets rid of unwanted spacing. */
+  position: relative;
+  top: -9px;
+  left: 5px;
+  color: #303;
 }
 
 /*//////// MAIN SECTIONS ////////*/
@@ -381,7 +490,7 @@ section {
   height: 221px;
 }
 
-#details a:link, a:visited { /* Depending on future lessons, I may need to change my edits to these rules for the links. */
+#details a:link, details a:visited { /* Depending on future lessons, I may need to change my edits to these rules for the links. */
   color: black;
   text-decoration: underline; /* This was set to none, but that makes it impossible to tell links apart from regular text. */
 }
@@ -402,7 +511,9 @@ footer {
   font-size: 0.75em; /* The font here is a little smaller than normal. */
   padding: 10px;
   background: #eee; /* Light gray */
-  border-top: 1px solid #ccc; /* Medium gray border between #details and footer */
+  border-top: 1px solid; 
+  /* ^^^ The color of the border between the #details and footer got changed from #ccc (medium gray) to the default black. 
+  I guess this was to provide a better contrast, but I think #ccc provides a better 3D effect. */
 }
 
 /*//////// STYLING NOTES ////////*/
