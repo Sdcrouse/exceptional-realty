@@ -1,0 +1,5 @@
+@media screen and (min-width: 700px) {
+  body {
+    background: cyan; /* This is just to test the CSS file. I will delete this. */
+  }
+}
